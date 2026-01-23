@@ -412,7 +412,7 @@ Transform:
   m_GameObject: {fileID: 854017360}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -24.8, y: 0, z: 45.3}
+  m_LocalPosition: {x: -8.4, y: 0, z: -2.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -629,7 +629,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.1
-  far clip plane: 400
+  far clip plane: 600
   field of view: 60
   orthographic: 0
   orthographic size: 5
@@ -717,7 +717,7 @@ Transform:
   m_GameObject: {fileID: 1330219653}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -3.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -831,7 +831,7 @@ Transform:
   m_GameObject: {fileID: 1384656315}
   serializedVersion: 2
   m_LocalRotation: {x: -0.17364825, y: 0, z: 0, w: 0.9848078}
-  m_LocalPosition: {x: 0.5, y: -10.57, z: 19.4}
+  m_LocalPosition: {x: 0.5, y: -15.4, z: 6.1}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -876,8 +876,8 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 8
-  m_CollisionDetection: 0
+  m_Constraints: 120
+  m_CollisionDetection: 1
 --- !u!1 &1429970320
 GameObject:
   m_ObjectHideFlags: 0
@@ -922,7 +922,7 @@ Transform:
   m_GameObject: {fileID: 1429970320}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.9}
+  m_LocalPosition: {x: 0, y: 7.4, z: -60.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -995,7 +995,7 @@ MonoBehaviour:
   face: {fileID: 0}
   player: {fileID: 1384656319}
   lateralSensitivity: 0.4
-  maxX: 3
+  maxX: 15
 --- !u!114 &1489239560
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1055,13 +1055,13 @@ Transform:
   m_GameObject: {fileID: 1861417324}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 20.8, y: 16.8, z: 1}
+  m_LocalPosition: {x: -0.7, y: 42.5, z: 77.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 854017361}
-  - {fileID: 1330219654}
   - {fileID: 2080131400}
+  - {fileID: 1330219654}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1861417326
@@ -1071,17 +1071,17 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1861417324}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c8be60d406cd9354384b2ca39d670c73, type: 3}
+  m_Script: {fileID: 11500000, guid: c893632d5184136408cc1ee53afa475c, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TrackSpawner
-  trackPrefab: {fileID: 4683099490001534130, guid: d08085c48a7c8c94aacb8a87afcc85f1, type: 3}
-  obstaclePrefab: {fileID: 6848551768371233325, guid: 13abb239cda054342898b00209508a72, type: 3}
-  initialPieces: 5
-  pieceLength: 4
-  speed: 2
-  obstacleChance: 0.5
+  m_EditorClassIdentifier: Assembly-CSharp::Spawner
+  spawners:
+  - {fileID: 854017360}
+  - {fileID: 1330219653}
+  - {fileID: 2080131399}
+  bola: {fileID: 6848551768371233325, guid: a2bdfa0e6793c4243bc27703d0702157, type: 3}
+  contador: 0
 --- !u!1 &2080131399
 GameObject:
   m_ObjectHideFlags: 0
@@ -1107,7 +1107,7 @@ Transform:
   m_GameObject: {fileID: 2080131399}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -8.3}
+  m_LocalPosition: {x: 10.1, y: 0, z: -2.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1123,11 +1123,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3517734213280653275, guid: d08085c48a7c8c94aacb8a87afcc85f1, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4683099490001534130, guid: d08085c48a7c8c94aacb8a87afcc85f1, type: 3}
       propertyPath: m_Name
       value: Pista
+      objectReference: {fileID: 0}
+    - target: {fileID: 5232942597144452610, guid: d08085c48a7c8c94aacb8a87afcc85f1, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 85.619995
+      objectReference: {fileID: 0}
+    - target: {fileID: 5232942597144452610, guid: d08085c48a7c8c94aacb8a87afcc85f1, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 29.112
       objectReference: {fileID: 0}
     - target: {fileID: 5232942597144452610, guid: d08085c48a7c8c94aacb8a87afcc85f1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1171,7 +1179,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6663783354244376712, guid: d08085c48a7c8c94aacb8a87afcc85f1, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

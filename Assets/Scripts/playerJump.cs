@@ -10,23 +10,19 @@ public class PlayerJump : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             isGrounded = true;
-            Debug.Log("Tocó el suelo");
+            Debug.Log("Toco el suelo");
         }
-
-
-     
-
     }
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log("Ontrigger");
-        if (other.gameObject.CompareTag("Enemigo"))
+        if (other.gameObject.CompareTag("Obstaculo"))
         {
             vidas--;
             if (vidas ==0)
                 Time.timeScale = 0f;
 
-            Debug.Log("Choco con enemigo");
+            Debug.Log("Choco con obstaculo");
         }
     }
 }
