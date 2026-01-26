@@ -1,0 +1,11 @@
+Model Information:
+* title:	Indiana Jones Hat
+* source:	https://sketchfab.com/3d-models/indiana-jones-hat-96cd3caac3f44d2583a91175541dd093
+* author:	AlexTheBaBa (https://sketchfab.com/BaBaCorp)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Indiana Jones Hat" (https://sketchfab.com/3d-models/indiana-jones-hat-96cd3caac3f44d2583a91175541dd093) by AlexTheBaBa (https://sketchfab.com/BaBaCorp) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

@@ -1,9 +1,12 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerJump : MonoBehaviour
 {
     public bool isGrounded;
     public int vidas = 3;
+
+    [SerializeField] GameObject canvas;
 
     void OnCollisionEnter(Collision collision)
     {
@@ -12,17 +15,32 @@ public class PlayerJump : MonoBehaviour
             isGrounded = true;
             Debug.Log("Toco el suelo");
         }
-    }
-    private void OnTriggerEnter(Collider other)
-    {
-        Debug.Log("Ontrigger");
-        if (other.gameObject.CompareTag("Obstaculo"))
+
+        if (collision.gameObject.CompareTag("Obstaculo"))
         {
             vidas--;
             if (vidas ==0)
-                Time.timeScale = 0f;
+                //Time.timeScale = 0f; esto para el tiempo del juego (para TODO)
 
             Debug.Log("Choco con obstaculo");
+        }
+    }
+
+    void Update()
+    {
+        if (vidas == 2)
+        {
+            canvas.transform.GetChild(2).gameObject.SetActive(false);
+        }
+
+        if (vidas == 1)
+        {
+            canvas.transform.GetChild(1).gameObject.SetActive(false);
+        }
+
+        if (vidas == 0)
+        {
+            SceneManager.LoadScene(2);
         }
     }
 }

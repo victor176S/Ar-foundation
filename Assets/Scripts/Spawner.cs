@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Spawner : MonoBehaviour
@@ -9,15 +10,31 @@ public class Spawner : MonoBehaviour
 
     private int pattern;
 
+    private int objetoElegido;
+
+    private GameObject objeto;
+
     [SerializeField] GameObject bola;
 
+    [SerializeField] GameObject bolaAlta;
+
     public float contador;
+
+    private float ajusteSpawner;
+
+    private GameObject datos;
+
+    [SerializeField] GameObject Canvas;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         //StartCoroutine(AsignacionSpawners());
 
         StartCoroutine(RandomPatternSpawn());
+
+        ajusteSpawner = gameObject.transform.position.z;
+
+        datos = GameObject.Find("DatosPersistentes");
 
         
     }
@@ -26,11 +43,21 @@ public class Spawner : MonoBehaviour
     void Update()
     {
         contador += Time.deltaTime;
+
+        if (contador > 1)
+        {
+            gameObject.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, ajusteSpawner + contador/3);
+        }
+
+        datos.GetComponent<Datos>().tiempo = contador;
+
+        Canvas.transform.GetChild(4).gameObject.GetComponent<TextMeshProUGUI>().text = Mathf.CeilToInt(contador).ToString();
+
     }
 
     private IEnumerator DestroyObjects(GameObject objeto)
     {
-        yield return new WaitForSeconds(10);
+        yield return new WaitForSeconds(25);
 
             if (objeto != null)
             {
@@ -42,11 +69,27 @@ public class Spawner : MonoBehaviour
     {   
         while (true)
         {
+
             yield return new WaitForSeconds(2);
 
             pattern = Random.Range(0,6);
 
-            
+            objetoElegido = Random.Range(0,2);
+
+            switch (objetoElegido)
+            {
+                case 0:
+
+                    objeto = bola;
+
+                    break;
+
+                case 1:
+
+                    objeto = bolaAlta;
+
+                    break;
+            }
 
         switch (pattern)
         {
@@ -54,7 +97,7 @@ public class Spawner : MonoBehaviour
 
                 Debug.Log("Instanciar");
 
-                GameObject bola0 = Instantiate(bola, spawners[0].transform.position, Quaternion.identity);
+                GameObject bola0 = Instantiate(objeto, spawners[0].transform.position, Quaternion.identity);
 
                 bola0.GetComponent<Rigidbody>().AddForce(Vector3.back * contador / 5, ForceMode.VelocityChange);
 
@@ -66,7 +109,7 @@ public class Spawner : MonoBehaviour
 
             case 1:
 
-                GameObject bola1 = Instantiate(bola, spawners[1].transform.position, Quaternion.identity);
+                GameObject bola1 = Instantiate(objeto, spawners[1].transform.position, Quaternion.identity);
 
                 bola1.GetComponent<Rigidbody>().AddForce(Vector3.back * contador / 5, ForceMode.VelocityChange);
 
@@ -78,7 +121,7 @@ public class Spawner : MonoBehaviour
 
             case 2:
 
-                GameObject bola2 = Instantiate(bola, spawners[2].transform.position, Quaternion.identity);
+                GameObject bola2 = Instantiate(objeto, spawners[2].transform.position, Quaternion.identity);
 
                 bola2.GetComponent<Rigidbody>().AddForce(Vector3.back * contador / 5, ForceMode.VelocityChange);
 
@@ -90,9 +133,9 @@ public class Spawner : MonoBehaviour
 
             case 3:
 
-                GameObject bola3 = Instantiate(bola, spawners[0].transform.position, Quaternion.identity);
+                GameObject bola3 = Instantiate(objeto, spawners[0].transform.position, Quaternion.identity);
 
-                GameObject bola4 = Instantiate(bola, spawners[1].transform.position, Quaternion.identity);
+                GameObject bola4 = Instantiate(objeto, spawners[1].transform.position, Quaternion.identity);
 
                 bola3.GetComponent<Rigidbody>().AddForce(Vector3.back * contador / 5, ForceMode.VelocityChange);
 
@@ -110,9 +153,9 @@ public class Spawner : MonoBehaviour
 
             case 4:
 
-                GameObject bola5 = Instantiate(bola, spawners[0].transform.position, Quaternion.identity);
+                GameObject bola5 = Instantiate(objeto, spawners[0].transform.position, Quaternion.identity);
 
-                GameObject bola6 = Instantiate(bola, spawners[2].transform.position, Quaternion.identity);
+                GameObject bola6 = Instantiate(objeto, spawners[2].transform.position, Quaternion.identity);
 
                 bola5.GetComponent<Rigidbody>().AddForce(Vector3.back * contador / 5, ForceMode.VelocityChange);
 
@@ -130,9 +173,9 @@ public class Spawner : MonoBehaviour
 
             case 5:
 
-                GameObject bola7 = Instantiate(bola, spawners[1].transform.position, Quaternion.identity);
+                GameObject bola7 = Instantiate(objeto, spawners[1].transform.position, Quaternion.identity);
 
-                GameObject bola8 = Instantiate(bola, spawners[2].transform.position, Quaternion.identity);
+                GameObject bola8 = Instantiate(objeto, spawners[2].transform.position, Quaternion.identity);
 
                 bola7.GetComponent<Rigidbody>().AddForce(Vector3.back * contador / 5, ForceMode.VelocityChange);
 
