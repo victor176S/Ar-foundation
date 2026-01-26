@@ -19,4 +19,14 @@ public class Botones : MonoBehaviour
     {
         SceneManager.LoadScene(1);
     }
+
+    public void Empezar()
+    {
+        SceneManager.LoadScene(0);
+    }
+
+    public void Salir()
+    {
+        Application.Quit();
+    }
 }
