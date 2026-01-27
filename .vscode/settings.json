@@ -67,5 +67,5 @@
         "*.sln": "*.csproj",
         "*.slnx": "*.csproj"
     },
-    "dotnet.defaultSolution": "Ar-foundation.slnx"
+    "dotnet.defaultSolution": "Ar Foundation 2.slnx"
 }

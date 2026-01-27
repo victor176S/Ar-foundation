@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
 
@@ -15,6 +16,8 @@ public class FaceJumpController : MonoBehaviour
     private bool isGrounded = true;
     private float lastJumpTime;
 
+    [SerializeField] private TextMeshProUGUI debug;
+
     void Update()
     {
         if (face == null || playerRb == null) return;
@@ -25,6 +28,8 @@ public class FaceJumpController : MonoBehaviour
 
         if (pitch < pitchThreshold && player.isGrounded && Time.time - lastJumpTime > cooldown)
         {
+            debug.text = "entrada if salto";
+
             Jump();
         }
     }

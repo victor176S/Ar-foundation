@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerJump : MonoBehaviour
 {
-    public bool isGrounded;
+    public bool isGrounded = false;
     public int vidas = 3;
 
     [SerializeField] GameObject canvas;
