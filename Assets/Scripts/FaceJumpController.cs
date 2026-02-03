@@ -9,8 +9,8 @@ public class FaceJumpController : MonoBehaviour
     public PlayerJump player;
 
     [Header("Jump Settings")]
-    public float jumpForce = 8f;
-    public float pitchThreshold = -15f;
+    public float jumpForce = 14f;
+    public float pitchJump = 20f;
     public float cooldown = 0.8f;
 
     private bool isGrounded = true;
@@ -20,15 +20,19 @@ public class FaceJumpController : MonoBehaviour
 
     void Update()
     {
+        
+
         if (face == null || playerRb == null) return;
 
         Vector3 rotation = face.transform.localEulerAngles;
         float pitch = rotation.x;
+        debug.text = pitch.ToString();
+
         if (pitch > 180) pitch -= 360;
 
-        if (pitch < pitchThreshold && player.isGrounded && Time.time - lastJumpTime > cooldown)
+        if (pitch > pitchJump && player.isGrounded && Time.time - lastJumpTime > cooldown)
         {
-            debug.text = "entrada if salto";
+            
 
             Jump();
         }

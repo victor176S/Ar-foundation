@@ -6,11 +6,11 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Juego.unity
-    guid: 99c9720ab356a0642a771bea13969a05
-  - enabled: 1
     path: Assets/Scenes/Menu.unity
     guid: c1ab47d98cc55ef43961614fe3689680
+  - enabled: 1
+    path: Assets/Scenes/Juego.unity
+    guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
     path: Assets/Scenes/Pantalla de muerte.unity
     guid: de597899cfcddf648905fc3786ab2714

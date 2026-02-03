@@ -15,14 +15,18 @@ public class Botones : MonoBehaviour
         
     }
 
+    /*estas funciones son de los distintos botones para cargar las escenas correspondientes,
+    siendo la primera para ir al menú en la pantalla de muerte, la segunda para empezar
+    la partida desde el menú, y la ultima para cerrar la app desde el menú*/
+
     public void GoToMenu()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(0);
     }
 
     public void Empezar()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
 
     public void Salir()

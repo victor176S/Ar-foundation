@@ -7,6 +7,7 @@ TagManager:
   - Ground
   - Obstaculo
   - Undefined
+  - Coleccionable
   layers:
   - Default
   - TransparentFX
@@ -43,6 +44,12 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Sombrero
+    uniqueID: 4000829175
+    locked: 0
+  - name: Cara
+    uniqueID: 3316496711
     locked: 0
   m_RenderingLayers:
   - Default
